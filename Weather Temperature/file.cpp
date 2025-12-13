@@ -1,20 +1,15 @@
 #include <iostream>
 using namespace std;
 
+void inputTemperature(int array[7][4]);
 void max_min(int array[7][4]);
 void average(int array[7][4]);
 
 int main()
 {
-    int temperature[7][4] = {
-        {25, 27, 28, 29},
-        {20, 22, 24, 25},
-        {23, 22, 18, 20},
-        {25, 27, 28, 29},
-        {20, 22, 24, 25},
-        {23, 22, 18, 20},
-        {23, 22, 18, 0},
-    };
+    system("cls");
+    int temperature[7][4];
+    inputTemperature(temperature);
     cout << endl;
     max_min(temperature);
     cout << endl;
@@ -24,6 +19,19 @@ int main()
     return 0;
 }
 
+void inputTemperature(int array[7][4])
+{
+    for (int i = 0; i < 7; i++)
+    {
+        cout << "\nEnter temperature of day: " << i + 1 << endl
+             << endl;
+        for (int j = 0; j < 4; j++)
+        {
+            cout << "Temperature of time: " << j + 1 << endl;
+            cin >> array[i][j];
+        }
+    }
+}
 
 void max_min(int array[7][4])
 {
