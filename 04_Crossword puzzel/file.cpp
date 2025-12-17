@@ -4,7 +4,7 @@ using namespace std;
 void inputGrid(char charac[4][4]);
 string traverseRow(char charac[4][4]);
 string traverseColumn(char charac[4][4]);
-void longesWord(string rowsWord, string colsWord);
+void longestWord(string rowsWord, string colsWord);
 
 int main()
 {
@@ -16,10 +16,11 @@ int main()
     cout << endl;
     string colLongestWord = traverseColumn(charac);
     cout << endl;
-    longesWord(rowLongestWord, colLongestWord);
+    longestWord(rowLongestWord, colLongestWord);
     cout << endl;
     return 0;
 }
+
 
 void inputGrid(char charac[4][4])
 {
@@ -123,7 +124,7 @@ string traverseColumn(char charac[4][4])
     return collongestWord;
 }
 
-void longesWord(string rowsWord, string colsWord)
+void longestWord(string rowsWord, string colsWord)
 {
     string longest, status;
     if (rowsWord.length() > colsWord.length())
@@ -136,5 +137,6 @@ void longesWord(string rowsWord, string colsWord)
         longest = colsWord;
         status = "column";
     }
-    cout << "Longes word is in: " << status << " and is : " << longest << endl;
+    cout << "Longest word is in: " << status << " and is : " << longest << endl;
 }
+
