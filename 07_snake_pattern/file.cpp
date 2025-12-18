@@ -19,7 +19,6 @@ int main()
                 cout << snake[i][j] << " ";
             }
         }
-
         else
         {
             for (int j = 0; j < 4; j++)
