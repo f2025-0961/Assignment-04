@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-void reverse(vector<int> &vec);
+void reverseVector(vector<int> &vec);
 
 // reverse elements
 int main()
@@ -22,7 +22,7 @@ int main()
         cout << v << " ";
     }
     cout << endl;
-    reverse(vec);
+    reverseVector(vec);
     cout << "reversed vector is: \n";
     for (int v : vec)
     {
@@ -32,7 +32,7 @@ int main()
     return 0;
 }
 
-void reverse(vector<int> &vec)
+void reverseVector(vector<int> &vec)
 {
     int start = 0, end = vec.size() - 1;
     while (start < end)

@@ -2,22 +2,42 @@
 #include <vector>
 using namespace std;
 
-//missing number is vector 2
 int main()
 {
     system("cls");
     vector<int> vec1 = {2, 3, 4, 5, 6};
     vector<int> vec2 = {2, 3, 5, 6};
-    int missing;
-    for (int i = 0; i < vec2.size() - 1; i++)
+
+    int missingNum = -2;
+    bool missing;
+
+    for (int i = 0; i < vec1.size(); i++)
     {
-        int temp = vec1[i];
-        if (temp != vec2[i])
+        missing = false;
+        for (int j = 0; j < vec2.size(); j++)
         {
-            missing = temp;
+            if (vec1[i] == vec2[j])
+            {
+                missing = true;
+                break;
+            }
+        }
+
+        if (!missing)
+        {
+            missingNum = vec1[i];
+            break;
         }
     }
-    cout << "missing number in vector 2 is: " << missing << endl
-         << endl;
+
+    if (missingNum != -2)
+    {
+        cout << "missing number in vector 2 is " << missingNum << endl;
+    }
+    else
+    {
+        cout << "no number is missing" << endl;
+    }
+
     return 0;
 }

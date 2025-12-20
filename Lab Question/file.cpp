@@ -2,9 +2,9 @@
 #include <vector>
 using namespace std;
 
-struct student
+struct studentStruct
 {
-    string studentName;
+    string name;
     int batch;
     string studentId;
     char section;
@@ -12,13 +12,13 @@ struct student
 };
 
 int menu();
-student inputStudent();
-void outputStudent(vector<vector<student>> &stud);
+studentStruct inputStudent();
+void outputStudent(vector<vector<studentStruct>> &stud);
 
 int main()
 {
     system("cls");
-    vector<vector<student>> stud;
+    vector<vector<studentStruct>> stud;
     bool run = true;
     do
     {
@@ -27,10 +27,10 @@ int main()
         {
         case 1:
         {
-            student input = inputStudent();
+            studentStruct input = inputStudent();
             for (int i = 0; i < 5; i++)
             {
-                stud.push_back(vector<student>());
+                stud.push_back(vector<studentStruct>());
                 stud[i].push_back(input);
             }
         }
@@ -67,11 +67,11 @@ int menu()
     return choice;
 }
 
-student inputStudent()
+studentStruct inputStudent()
 {
-    student stud;
+    studentStruct stud;
     cout << "Enter student name: \n";
-    cin >> stud.studentName;
+    cin >> stud.name;
     cout << "Enter student ID: \n";
     cin >> stud.studentId;
     cout << "Enter student section: \n";
@@ -83,15 +83,15 @@ student inputStudent()
     return stud;
 }
 
-void outputStudent(vector<vector<student>> &stud)
+void outputStudent(vector<vector<studentStruct>> &stud)
 {
     for (int i = 0; i < stud.size(); i++)
     {
         for (int j = 0; i < stud[i].size(); j++)
         {
-            student s = stud[i][j];
+            studentStruct s = stud[i][j];
             cout << "Student name is: \n"
-                 << s.studentName << endl;
+                 << s.name << endl;
             cout << "Student Id is: \n"
                  << s.studentId << endl;
             cout << "Student section is: \n"

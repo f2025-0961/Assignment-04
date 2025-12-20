@@ -2,26 +2,26 @@
 #include <vector>
 using namespace std;
 
-struct employee
+struct employeeStruct
 {
-    string employeeName;
-    int employeeAge;
-    vector<string> employeeSkills;
+    string name;
+    int age;
+    vector<string> skills;
 };
 
-employee inputEmployee();
-void displayEmployee(vector<employee> &totalEmployee);
+employeeStruct inputEmployee();
+void displayEmployee(vector<employeeStruct> &totalEmployee);
 
 int main()
 {
     system("cls");
-    vector<employee> totalEmployee;
+    vector<employeeStruct> totalEmployee;
     int num;
     cout << "Enter Number of employee: \n";
     cin >> num;
     for (int i = 0; i < num; i++)
     {
-        employee emp = inputEmployee();
+        employeeStruct emp = inputEmployee();
         totalEmployee.push_back(emp);
     }
     cout << endl;
@@ -29,14 +29,14 @@ int main()
     return 0;
 }
 
-employee inputEmployee()
+employeeStruct inputEmployee()
 {
-    employee emp;
+    employeeStruct emp;
     int n;
     cout << "Enter employee name: \n";
-    cin >> emp.employeeName;
+    cin >> emp.name;
     cout << "Enter employee age: \n";
-    cin >> emp.employeeAge;
+    cin >> emp.age;
     cout << "Enter how many skills employee has: \n";
     cin >> n;
     for (int i = 0; i < n; i++)
@@ -44,24 +44,24 @@ employee inputEmployee()
         string temp;
         cout << "Enter employee skills: \n";
         cin >> temp;
-        emp.employeeSkills.push_back(temp);
+        emp.skills.push_back(temp);
     }
     return emp;
 }
 
-void displayEmployee(vector<employee> &totalEmployee)
+void displayEmployee(vector<employeeStruct> &totalEmployee)
 {
     for (int i = 0; i < totalEmployee.size(); i++)
     {
-        employee emp = totalEmployee[i];
+        employeeStruct emp = totalEmployee[i];
         cout << "Name of employe: " << i + 1 << " is: \n"
-             << emp.employeeName << endl;
+             << emp.name << endl;
         cout << "Age of employe: " << i + 1 << " is: \n"
-             << emp.employeeAge << endl;
+             << emp.age << endl;
         cout << "Skill of employee: \n";
-        for (int j = 0; j < emp.employeeSkills.size(); j++)
+        for (int j = 0; j < emp.skills.size(); j++)
         {
-            string skill = emp.employeeSkills[j];
+            string skill = emp.skills[j];
             cout << skill << endl;
         }
     }

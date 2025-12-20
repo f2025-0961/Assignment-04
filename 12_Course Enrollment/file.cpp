@@ -2,32 +2,32 @@
 #include <vector>
 using namespace std;
 
-struct student
+struct studentStruct
 {
-    string studentName;
-    int studentID;
+    string name;
+    int id;
 };
 
-struct course
+struct courseStruct
 {
-    string courseName;
-    int courseCode;
-    vector<student> stud;
+    string name;
+    int code;
+    vector<studentStruct> student;
 };
 
-course inputCourse();
-void displayCourse(vector<course> &totalCourses);
+courseStruct inputCourse();
+void displayCourse(vector<courseStruct> &totalCourses);
 int main()
 {
     system("cls");
     int num;
-    vector<course> totalCourses;
+    vector<courseStruct> totalCourses;
     cout << "Enter number of courses: "
          << endl;
     cin >> num;
     for (int i = 0; i < num; i++)
     {
-        course crs = inputCourse();
+        courseStruct crs = inputCourse();
         totalCourses.push_back(crs);
     }
     cout << endl;
@@ -37,46 +37,46 @@ int main()
     return 0;
 }
 
-course inputCourse()
+courseStruct inputCourse()
 {
-    course crs;
+    courseStruct crs;
     int n;
     cout << "Enter course name: \n";
-    cin >> crs.courseName;
+    cin >> crs.name;
     cout << "Enter course code: \n";
-    cin >> crs.courseCode;
+    cin >> crs.code;
     cout << "Enter how many students are enrolled: \n";
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        student stud;
+        studentStruct stud;
         cout << "Enter student name: \n";
-        cin >> stud.studentName;
+        cin >> stud.name;
         cout << "Enter student ID: \n";
-        cin >> stud.studentID;
-        crs.stud.push_back(stud);
+        cin >> stud.id;
+        crs.student.push_back(stud);
     }
 
     return crs;
 }
 
-void displayCourse(vector<course> &totalCourses)
+void displayCourse(vector<courseStruct> &totalCourses)
 {
     for (int i = 0; i < totalCourses.size(); i++)
     {
-        course crs = totalCourses[i];
+        courseStruct crs = totalCourses[i];
         cout << "Course Name: \n"
-             << crs.courseName << endl;
+             << crs.name << endl;
         cout << "Course Code: \n"
-             << crs.courseCode << endl;
+             << crs.code << endl;
         cout << "Student(s) Enrolled in this are: \n";
-        for (int j = 0; j < crs.stud.size(); j++)
+        for (int j = 0; j < crs.student.size(); j++)
         {
-            student std = crs.stud[j];
+            studentStruct std = crs.student[j];
             cout << "Student name: \n"
-                 << std.studentName << endl;
+                 << std.name << endl;
             cout << "Student ID: \n"
-                 << std.studentID << endl;
+                 << std.id << endl;
         }
     }
 }
